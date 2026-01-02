@@ -1,0 +1,1399 @@
+@import url("https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@700&display=swap");
+
+:root {
+  --bg-main: #000000;
+  --bg-card: #000000;
+  --accent: #0ea5e9;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+}
+
+*, 
+*::before, 
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, 
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.app-root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease-out;
+}
+
+body.app-ready .app-root {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Intro / loading screen */
+
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, #020617 0, #000000 55%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  transition: opacity 0.35s ease-out;
+}
+
+.intro-overlay.intro-hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro-inner {
+  width: 100%;
+  max-width: 420px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.intro-box {
+  width: 100%;
+  padding: 18px 16px 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(250, 204, 21, 0.7);
+  background: radial-gradient(circle at top, #0f172a 0, #020617 55%);
+  box-shadow:
+    0 0 18px rgba(250, 204, 21, 0.8),
+    0 0 36px rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.intro-logo-image {
+  width: 120px;
+  max-width: 60%;
+  border-radius: 14px;
+  border: 2px solid #facc15;
+  box-shadow:
+    0 0 8px rgba(250, 204, 21, 0.8),
+    0 0 16px rgba(234, 179, 8, 0.7);
+  object-fit: cover;
+  animation: hero-float 5s ease-in-out infinite;
+}
+
+.intro-text {
+  display: block;
+  font-family: "Scheherazade New", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #fefce8;
+  text-align: center;
+  white-space: pre-line;
+}
+
+.intro-skip-btn {
+  margin-top: 4px;
+  padding: 4px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(250, 204, 21, 0.7);
+  background-image: linear-gradient(135deg, #facc15, #f97316);
+  color: #0b1120;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow:
+    0 0 6px rgba(250, 204, 21, 0.9),
+    0 0 12px rgba(248, 113, 113, 0.7);
+}
+
+.intro-footer {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 16px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #e5e7eb;
+}
+
+.intro-footer-text {
+  white-space: nowrap;
+}
+
+.intro-skip-btn:active {
+  transform: scale(0.96);
+}
+
+/* Top header with typewriter */
+
+.top-header {
+  width: 100%;
+  flex: 0 0 auto;
+  padding: 8px 12px 4px;
+  display: flex;
+  justify-content: center;
+}
+
+.header-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 8px 12px;
+  border-radius: 16px;
+  background: #020617;
+  box-shadow:
+    0 4px 10px rgba(15, 23, 42, 0.6),
+    0 0 8px rgba(15, 23, 42, 0.9);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-typing-text {
+  flex: 1 1 auto;
+  font-family: "Scheherazade New", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-size: 0.9rem;
+  color: #f9fafb;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Hero (top image) */
+
+.hero {
+  width: 100%;
+  flex: 0 0 auto;
+  padding: 4px 12px 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.more-menu-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(250, 204, 21, 0.7);
+  background: radial-gradient(circle at 0% 0%, #f97316, #0f172a 60%);
+  color: #f9fafb;
+  font-size: 1.1rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow:
+    0 0 8px rgba(250, 204, 21, 0.9),
+    0 0 16px rgba(56, 189, 248, 0.7);
+}
+
+.more-menu-btn:active {
+  transform: scale(0.96);
+}
+
+.hero-image {
+  box-sizing: border-box;
+  max-width: 80%;
+  width: 80%;
+  display: block;
+  border-radius: 14px;
+  object-fit: cover;
+  max-height: 22vh;
+  border: 2px solid #facc15;
+  box-shadow:
+    0 0 8px rgba(250, 204, 21, 0.8),
+    0 0 16px rgba(234, 179, 8, 0.7),
+    0 0 24px rgba(202, 138, 4, 0.6);
+  animation: hero-float 5s ease-in-out infinite;
+}
+
+/* Main area with watermark background */
+
+.main-content {
+  position: relative;
+  flex: 1 1 auto;
+  margin-top: 6px;
+  margin-inline: 0;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Watermark */
+
+.watermark-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 8px;
+  pointer-events: none;
+}
+
+.watermark-text {
+  font-size: 7vw;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.12);
+  white-space: nowrap;
+  text-align: center;
+  letter-spacing: 0.08em;
+  animation: watermark-move 14s linear infinite alternate;
+}
+
+/* Foreground content */
+
+.content-card {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  margin: 0;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 10px 12px;
+}
+
+.store-title {
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.store-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.home-typing-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 4px;
+  padding: 0 12px;
+}
+
+.home-typing-text {
+  max-width: 360px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #fefce8;
+  white-space: pre-line;
+  overflow: hidden;
+  font-family: "Scheherazade New", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid #facc15;
+  box-shadow:
+    0 0 6px rgba(250, 204, 21, 0.9),
+    0 0 14px rgba(234, 179, 8, 0.8),
+    0 0 22px rgba(202, 138, 4, 0.7);
+  text-shadow:
+    0 0 4px rgba(250, 204, 21, 0.9),
+    0 0 8px rgba(234, 179, 8, 0.9),
+    0 0 14px rgba(202, 138, 4, 0.8);
+}
+
+/* Categories buttons */
+
+.categories-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.category-btn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 420px;
+  min-height: 190px;
+  margin-inline: auto;
+  padding: 14px 18px;
+  border-radius: 20px;
+  border: none;
+  color: #e5e7eb;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  text-align: center;
+  transition:
+    transform 0.18s ease-out,
+    box-shadow 0.18s ease-out,
+    border-color 0.18s ease-out,
+    background-position 0.35s ease-out;
+}
+
+.category-btn:hover,
+.category-btn:focus-visible,
+.category-btn:active {
+  transform: translateY(-4px) scale(1.02);
+  border: 2px solid #facc15;
+  box-shadow:
+    0 0 10px rgba(250, 204, 21, 0.9),
+    0 0 20px rgba(234, 179, 8, 0.8);
+}
+
+.category-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: 200% 200%;
+  animation: gradient-move 6s ease-in-out infinite alternate;
+  z-index: -2;
+}
+
+.category-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, #ffffff22, #00000022);
+  mix-blend-mode: soft-light;
+  z-index: -1;
+}
+
+.category-logo {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+.category-label {
+  flex: 0 0 auto;
+  text-align: center;
+  color: #e5e7eb;
+  font-weight: 700;
+}
+
+/* Parallelogram label أعلى يمين الزر */
+.category-parallelogram {
+  position: absolute;
+  top: 10px;
+  inset-inline-end: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(250, 204, 21, 0.9);
+  transform: skewX(-20deg) translateY(-10px);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease-out,
+    transform 0.25s ease-out;
+  z-index: 2;
+}
+
+.category-parallelogram-text {
+  display: inline-block;
+  transform: skewX(20deg);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fefce8;
+  white-space: nowrap;
+}
+
+/* CTA "قم بالدخول الان" يظهر فقط عند كون الزر أمام المستخدم */
+.category-cta {
+  position: absolute;
+  inset-inline-end: 12px;
+  bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  font-size: 0.78rem;
+  color: #e5e7eb;
+  opacity: 0;
+  transform: translateX(12px);
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease-out,
+    transform 0.25s ease-out;
+  z-index: 2;
+}
+
+.category-cta-text {
+  white-space: nowrap;
+}
+
+.category-cta-arrow {
+  display: inline-block;
+  font-size: 0.9rem;
+  animation: cta-arrow-move 0.9s ease-in-out infinite;
+}
+
+/* إظهار الشكل المتوازي الأضلاع والـ CTA فقط عندما يكون الزر في المنتصف تقريباً */
+.category-btn.in-view .category-parallelogram {
+  opacity: 1;
+  transform: skewX(-20deg) translateY(0);
+}
+
+.category-btn.in-view .category-cta {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* إخفاء اللوجو والنص داخل أزرار الأقسام في الصفحة الرئيسية */
+.category-logo,
+.category-label {
+  display: none;
+}
+
+/* Individual category color themes */
+
+.category-pubg::before {
+  background-image: url("./1481606_0.jpg");
+  background-size: cover;
+  background-position: center;
+  animation: none;
+}
+
+.category-freefire::before {
+  background-image: url("./483528c77a19be6735661c5f68a749ea.jpg");
+  background-size: cover;
+  background-position: center;
+  animation: none;
+}
+
+.category-charging::before {
+  background-image: url("./كروت فمه.png");
+  background-size: cover;
+  background-position: center;
+  animation: none;
+}
+
+.category-design::before {
+  background-image: url("./تصميم.png");
+  background-size: cover;
+  background-position: center;
+  animation: none;
+}
+
+.category-methods::before {
+  background-image: url("./generated-image-cf766f79-a536-400c-8bc7-647a7aecb55d.png");
+  background-size: cover;
+  background-position: center;
+  animation: none;
+}
+
+/* Gradient animation */
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+/* Small screens tweaks */
+
+@media (max-width: 400px) {
+  .hero-image {
+    max-height: 20vh;
+  }
+
+  .watermark-text {
+    font-size: 8vw;
+  }
+
+  .store-title {
+    font-size: 1.4rem;
+  }
+
+  .categories-grid {
+    gap: 8px;
+  }
+
+  .category-btn {
+    padding: 9px;
+  }
+}
+
+/* Full-screen internal section pages */
+
+.section-page {
+  position: fixed;
+  inset: 0;
+  background: #000000;
+  color: #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.section-header {
+  padding: 12px 14px;
+  background: transparent;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.back-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(248, 250, 252, 0.6);
+  background-image: linear-gradient(135deg, #ef4444, #3b82f6);
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  animation: gradient-move 6s ease-in-out infinite alternate;
+  color: #0b1120;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.discount-logo-btn {
+  position: absolute;
+  inset-inline-end: 14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 2px solid #facc15;
+  background-image: url("./OIP.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow:
+    0 0 8px rgba(250, 204, 21, 0.9),
+    0 0 16px rgba(248, 113, 113, 0.7);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #0b1120;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.discount-logo-btn::before {
+  content: "";
+}
+
+.discount-logo-btn::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  border: 2px dashed rgba(250, 204, 21, 0.9);
+  box-sizing: border-box;
+  animation: spin-border 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes spin-border {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.back-btn::before {
+  content: "⟵";
+  font-size: 0.9rem;
+}
+
+.page-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.section-main {
+  flex: 1 1 auto;
+  padding: 16px 18px;
+  overflow-y: auto;
+}
+
+/* شريط عداد وقت الخصم أعلى الصفحة */
+.discount-timer-bar {
+  position: absolute;
+  inset-inline: 70px 70px;
+  top: 8px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background-image: linear-gradient(135deg, #facc15, #f97316);
+  color: #000;
+  font-size: 0.7rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow:
+    0 0 6px rgba(250, 204, 21, 0.9),
+    0 0 12px rgba(248, 113, 113, 0.8);
+  pointer-events: none;
+}
+
+/* PUBG & Free Fire-specific header + hover styling */
+
+.pubg-page .section-header,
+.freefire-page .section-header,
+.charging-page .section-header,
+.methods-page .section-header,
+.design-page .section-header {
+  justify-content: center;
+  position: relative;
+}
+
+.pubg-page .back-btn,
+.freefire-page .back-btn,
+.charging-page .back-btn,
+.methods-page .back-btn,
+.design-page .back-btn {
+  position: absolute;
+  inset-inline-start: 14px;
+}
+
+.pubg-page .page-title,
+.freefire-page .page-title,
+.charging-page .page-title,
+.methods-page .page-title,
+.design-page .page-title {
+  font-family: "Scheherazade New", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.pubg-page button:hover,
+.pubg-page button:focus-visible,
+.freefire-page button:hover,
+.freefire-page button:focus-visible,
+.charging-page button:hover,
+.charging-page button:focus-visible,
+.methods-page button:hover,
+.methods-page button:focus-visible,
+.design-page button:hover,
+.design-page button:focus-visible {
+  box-shadow: 0 0 0 2px #facc15;
+}
+
+/* PUBG section layout */
+
+.pubg-search-wrapper {
+  margin-bottom: 12px;
+}
+
+.pubg-search-box {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 2px;
+  border-radius: 999px;
+  background: #020617;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+}
+
+/* تفعيل الإضاءة المتحركة فقط عند الكتابة / التركيز */
+.pubg-search-box.active {
+  background-image: linear-gradient(135deg, #b91c1c, #ef4444);
+  background-size: 200% 200%;
+  animation: gradient-move 6s ease-in-out infinite alternate;
+  border-color: #f97316;
+}
+
+.pubg-search-input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  direction: rtl;
+  background: #020617;
+  color: #e5e7eb;
+}
+
+.pubg-search-input::placeholder {
+  color: #9ca3af;
+  font-size: 0.85rem;
+}
+
+.pubg-banner {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.pubg-banner-img {
+  width: 70%;
+  max-width: 260px;
+  border-radius: 16px;
+  border: 2px solid #facc15;
+  box-shadow:
+    0 0 12px rgba(250, 204, 21, 0.9),
+    0 0 30px rgba(250, 204, 21, 0.5);
+  object-fit: cover;
+  display: block;
+  overflow: hidden;
+}
+
+.pubg-typing-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+  padding: 0 12px;
+}
+
+.pubg-typing-text {
+  max-width: 340px;
+  font-size: 0.95rem;
+  text-align: center;
+  color: #fefce8;
+  white-space: pre-line;
+  overflow: hidden;
+  font-family: "Scheherazade New", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-shadow:
+    0 0 4px rgba(250, 204, 21, 0.9),
+    0 0 8px rgba(234, 179, 8, 0.9),
+    0 0 14px rgba(202, 138, 4, 0.8);
+}
+
+.pubg-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.pubg-item {
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.pubg-main-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  color: #e5e7eb;
+  font-size: 1rem;
+  font-weight: 700;
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  animation: gradient-move 6s ease-in-out infinite alternate;
+}
+
+/* 60 شده ب43ج - أحمر وأزرق متداخلين */
+.pubg-item:nth-child(1) .pubg-main-btn {
+  background-image: linear-gradient(135deg, #ef4444, #3b82f6);
+}
+
+/* 325 شده ب215ج - أزرق وبني متداخلين */
+.pubg-item:nth-child(2) .pubg-main-btn {
+  background-image: linear-gradient(135deg, #3b82f6, #92400e);
+}
+
+/* 170 شده ب55ج - أحمر وأصفر متداخلين */
+.pubg-item:nth-child(3) .pubg-main-btn {
+  background-image: linear-gradient(135deg, #ef4444, #eab308);
+}
+
+/* كريستاله حمرا140ج - أزرق وأخضر متداخلين */
+.pubg-item:nth-child(4) .pubg-main-btn {
+  background-image: linear-gradient(135deg, #0ea5e9, #22c55e);
+}
+
+/* سيزون ب200ج - أزرق وبرتقالي متداخلين */
+.pubg-item:nth-child(5) .pubg-main-btn {
+  background-image: linear-gradient(135deg, #0ea5e9, #f97316);
+}
+
+/* برايم عادي ب48ج - أحمر وبنفسجي متداخلين */
+.pubg-item:nth-child(6) .pubg-main-btn {
+  background-image: linear-gradient(135deg, #ef4444, #a855f7);
+}
+
+/* بريم بلص ب420ج - خلفية خاصة */
+.pubg-item:nth-child(7) .pubg-main-btn {
+  background-image: linear-gradient(135deg, #facc15, #eab308);
+}
+
+/* أزرار قسم طرق الثغرات - خلفية متدرجة متحركة مثل ببجي وفري فاير */
+.methods-page .pubg-main-btn {
+  background-image: linear-gradient(135deg, #ef4444, #3b82f6);
+}
+
+/* أزرار قسم التصميم - خلفية متدرجة متحركة مثل ببجي وفري فاير */
+.design-page .pubg-main-btn {
+  background-image: linear-gradient(135deg, #f97316, #22c55e);
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.pubg-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.contact-btn {
+  flex: 1 1 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 4px;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #0b1120;
+}
+
+.whatsapp-btn {
+  background: #22c55e;
+}
+
+.telegram-btn {
+  background: #0ea5e9;
+}
+
+.contact-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+}
+
+.contact-icon-wa {
+  background-color: transparent;
+  background-image: url("https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg");
+  background-size: 80% 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.contact-icon-tg {
+  background-color: transparent;
+  background-image: url("https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg");
+  background-size: 80% 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Placeholder for other sections */
+
+.empty-section-text {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.95rem;
+  color: #9ca3af;
+}
+
+@media (max-width: 480px) {
+  .pubg-grid {
+    width: 100%;
+  }
+
+  .discount-timer-bar {
+    inset-inline: 60px 60px;
+    font-size: 0.65rem;
+  }
+}
+
+/* حركات عامة للصفحة الرئيسية */
+body.app-ready .content-card {
+  animation: content-fade-up 0.6s ease-out;
+}
+
+body.app-ready .watermark-layer {
+  animation: layer-fade-in 0.8s ease-out;
+}
+
+/* Keyframes للحركات العامة */
+@keyframes content-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes layer-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes watermark-move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-12px);
+  }
+}
+
+/* حركة السهم داخل زر "قم بالدخول الان" */
+@keyframes cta-arrow-move {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* نافذة كود الخصم */
+.discount-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.discount-modal-overlay.show {
+  display: flex;
+}
+
+.discount-modal {
+  width: 80%;
+  max-width: 360px;
+  background: #020617;
+  border-radius: 14px;
+  border: 1px solid rgba(248, 250, 252, 0.2);
+  box-shadow:
+    0 0 12px rgba(250, 204, 21, 0.6),
+    0 0 20px rgba(0, 0, 0, 0.9);
+  padding: 10px 12px 12px;
+  direction: rtl;
+}
+
+.discount-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.discount-modal-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.discount-modal-close {
+  border: none;
+  background: transparent;
+  color: #e5e7eb;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.discount-modal-body {
+  margin-bottom: 10px;
+}
+
+.discount-modal-label {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+  color: #e5e7eb;
+}
+
+.discount-code-input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid #facc15;
+  background: #020617;
+  color: #fefce8;
+  outline: none;
+  font-size: 0.85rem;
+  text-align: center;
+  box-shadow:
+    0 0 6px rgba(250, 204, 21, 0.9),
+    0 0 14px rgba(234, 179, 8, 0.8);
+}
+
+.discount-code-input::placeholder {
+  color: #9ca3af;
+}
+
+.discount-modal-message {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  min-height: 1em;
+}
+
+.discount-modal-message-error {
+  color: #f97373;
+}
+
+.discount-modal-message-success {
+  color: #bbf7d0;
+}
+
+.discount-modal-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.discount-modal-confirm {
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #0b1120;
+  background-image: linear-gradient(135deg, #facc15, #f97316);
+  box-shadow:
+    0 0 8px rgba(250, 204, 21, 0.9),
+    0 0 16px rgba(248, 113, 113, 0.7);
+}
+
+/* نافذة مواقع التواصل من زر الثلاث نقاط */
+.social-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+}
+
+.social-modal-overlay.show {
+  display: flex;
+}
+
+.social-modal {
+  width: 80%;
+  max-width: 360px;
+  background: radial-gradient(circle at top, #0f172a 0, #020617 60%);
+  border-radius: 18px;
+  border: 1px solid rgba(248, 250, 252, 0.18);
+  box-shadow:
+    0 0 18px rgba(56, 189, 248, 0.9),
+    0 0 32px rgba(15, 23, 42, 0.9);
+  padding: 10px 12px 14px;
+  direction: rtl;
+}
+
+.social-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.social-modal-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.social-modal-close {
+  border: none;
+  background: transparent;
+  color: #e5e7eb;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.social-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.social-btn {
+  position: relative;
+  width: 100%;
+  border-radius: 999px;
+  padding: 8px 10px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #f9fafb;
+  font-weight: 700;
+  font-size: 0.86rem;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow:
+    0 0 10px rgba(15, 23, 42, 0.9),
+    0 0 18px rgba(15, 23, 42, 0.9);
+}
+
+.social-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: 220% 220%;
+  background-position: 0% 50%;
+  z-index: -1;
+  animation: gradient-move 6s ease-in-out infinite alternate;
+}
+
+.social-btn-wa::before {
+  background-image: linear-gradient(135deg, #22c55e, #4ade80, #bbf7d0);
+}
+
+.social-btn-tg::before {
+  background-image: linear-gradient(135deg, #0ea5e9, #22c55e, #f97316);
+}
+
+.social-btn-ig::before {
+  background-image: linear-gradient(135deg, #f97316, #ec4899, #6366f1);
+}
+
+.social-btn-yt::before {
+  background-image: linear-gradient(135deg, #ef4444, #b91c1c, #fecaca);
+}
+
+.social-btn:active {
+  transform: scale(0.97);
+}
+
+.social-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background-color: #ffffff;
+  background-size: 70% 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow:
+    0 0 6px rgba(248, 250, 252, 0.9),
+    0 0 10px rgba(248, 250, 252, 0.9);
+}
+
+.social-icon-wa {
+  background-image: url("https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg");
+}
+
+.social-icon-tg {
+  background-image: url("https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg");
+}
+
+.social-icon-ig {
+  background-image: url("https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg");
+}
+
+.social-icon-yt {
+  background-image: url("https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg");
+}
+
+.social-label {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+/* Theme toggle button in header */
+.theme-toggle-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background: radial-gradient(circle at 0% 0%, #facc15, #0f172a 60%);
+  color: #0b1120;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow:
+    0 0 6px rgba(148, 163, 184, 0.8),
+    0 0 12px rgba(15, 23, 42, 0.9);
+}
+
+.theme-toggle-btn:active {
+  transform: scale(0.96);
+}
+
+/* Light theme overrides */
+body.theme-light {
+  --bg-main: #f3f4f6;
+  --bg-card: #ffffff;
+  --text-main: #020617;
+  --text-muted: #4b5563;
+}
+
+body.theme-light {
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+body.theme-light .header-container {
+  background: #e5e7eb;
+  box-shadow:
+    0 4px 10px rgba(148, 163, 184, 0.5),
+    0 0 6px rgba(148, 163, 184, 0.8);
+}
+
+body.theme-light .store-title,
+body.theme-light .store-subtitle {
+  color: var(--text-main);
+}
+
+/* Floating WhatsApp button */
+.floating-wa-btn {
+  position: fixed;
+  inset-inline-end: 14px;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid #22c55e;
+  background: radial-gradient(circle at 0% 0%, #22c55e, #16a34a 60%);
+  box-shadow:
+    0 0 8px rgba(34, 197, 94, 0.9),
+    0 0 18px rgba(21, 128, 61, 0.9);
+  cursor: pointer;
+  z-index: 1150;
+}
+
+.floating-wa-btn:active {
+  transform: scale(0.97);
+}
+
+.floating-wa-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background-color: #f9fafb;
+  background-image: url("https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg");
+  background-size: 70% 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.floating-wa-text {
+  max-width: 120px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #f9fafb;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media (max-width: 400px) {
+  .floating-wa-btn {
+    padding: 7px 10px;
+    bottom: 12px;
+    inset-inline-end: 10px;
+  }
+
+  .floating-wa-text {
+    max-width: 100px;
+    font-size: 0.76rem;
+  }
+}
