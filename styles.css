@@ -462,6 +462,13 @@ body.app-ready .app-root {
   background: rgba(15, 23, 42, 0.95);
 }
 
+/* شارة NEW على زر قسم الشحن في الصفحة الرئيسية */
+.category-parallelogram-new-home-charging {
+  top: 36px;
+  border-color: rgba(56, 189, 248, 0.9);
+  background: rgba(15, 23, 42, 0.95);
+}
+
 .category-parallelogram-text {
   display: inline-block;
   transform: skewX(20deg);
@@ -953,6 +960,72 @@ body.app-ready .app-root {
   background-image: linear-gradient(135deg, #ef4444, #eab308);
 }
 
+/* خلفيات متحركة مختلفة لعناصر الشحن الجديدة */
+.charging-page .pubg-item[data-item="باقه فليكس70 ب105جنيه"] .pubg-main-btn {
+  background-image: linear-gradient(135deg, #f97316, #ef4444);
+}
+
+.charging-page .pubg-item[data-item="باقه فليكس100ب 145جنيه"] .pubg-main-btn {
+  background-image: linear-gradient(135deg, #22c55e, #0ea5e9);
+}
+
+.charging-page .pubg-item[data-item="باقه فليكس150ب 218جنيه"] .pubg-main-btn {
+  background-image: linear-gradient(135deg, #a855f7, #6366f1);
+}
+
+.charging-page .pubg-item[data-item="باقه فليكس 300ب435جنيه"] .pubg-main-btn {
+  background-image: linear-gradient(135deg, #facc15, #f97316);
+}
+
+.charging-page .pubg-item[data-item="تجديد نت ارضي باقه200جيجا ب400جنيه"] .pubg-main-btn {
+  background-image: linear-gradient(135deg, #0ea5e9, #22c55e);
+}
+
+.charging-page .pubg-item[data-item="تجديد باقه نت ارضي 180جيجا ب253جنيه"] .pubg-main-btn {
+  background-image: linear-gradient(135deg, #ec4899, #8b5cf6);
+}
+
+.charging-page .pubg-item[data-item="دفع فاتوره الارضي حسب السعر"] .pubg-main-btn {
+  background-image: linear-gradient(135deg, #f97316, #22c55e);
+}
+
+.charging-page .pubg-item[data-item="دفع فواتير كهرباء"] .pubg-main-btn {
+  background-image: linear-gradient(135deg, #ef4444, #facc15);
+}
+
+.charging-page .pubg-item[data-item="دفع فواتير المياه"] .pubg-main-btn {
+  background-image: linear-gradient(135deg, #0ea5e9, #38bdf8);
+}
+
+.charging-page .pubg-item[data-item="دفع فواتير الغاز"] .pubg-main-btn {
+  background-image: linear-gradient(135deg, #ea580c, #f97316);
+}
+
+.charging-page .pubg-item[data-item="تجديد باقات اورنج واتصلات"] .pubg-main-btn {
+  background-image: linear-gradient(135deg, #22c55e, #facc15);
+}
+
+/* مطابقة خلفيات كروت الفكه الأخيرة مع أول أربع أزرار في قسم الشحن */
+.charging-page .pubg-item[data-item="كرت فكه ب17ج"] .pubg-main-btn {
+  /* نفس خلفية باقه فليكس70 ب105جنيه */
+  background-image: linear-gradient(135deg, #f97316, #ef4444);
+}
+
+.charging-page .pubg-item[data-item="كرت فكه ب20ج"] .pubg-main-btn {
+  /* نفس خلفية باقه فليكس100ب 145جنيه */
+  background-image: linear-gradient(135deg, #22c55e, #0ea5e9);
+}
+
+.charging-page .pubg-item[data-item="كرت فكه ب28ج"] .pubg-main-btn {
+  /* نفس خلفية باقه فليكس150ب 218جنيه */
+  background-image: linear-gradient(135deg, #a855f7, #6366f1);
+}
+
+.charging-page .pubg-item[data-item="كرت فكه ب36ج"] .pubg-main-btn {
+  /* نفس خلفية باقه فليكس 300ب435جنيه */
+  background-image: linear-gradient(135deg, #facc15, #f97316);
+}
+
 /* شارة NEW لعناصر ببجي الجديدة */
 .pubg-new-badge {
   position: absolute;
@@ -975,6 +1048,32 @@ body.app-ready .app-root {
 }
 
 .pubg-new-badge span {
+  display: inline-block;
+  transform: skewX(18deg);
+}
+
+/* شارة NEW لعناصر الشحن الجديدة */
+.charging-new-badge {
+  position: absolute;
+  top: 6px;
+  inset-inline-start: 8px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(56, 189, 248, 0.9);
+  transform: skewX(-18deg);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #e0f2fe;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow:
+    0 0 6px rgba(56, 189, 248, 0.8),
+    0 0 12px rgba(15, 23, 42, 0.9);
+  z-index: 3;
+}
+
+.charging-new-badge span {
   display: inline-block;
   transform: skewX(18deg);
 }
