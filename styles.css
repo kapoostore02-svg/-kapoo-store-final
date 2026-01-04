@@ -937,6 +937,22 @@ body.app-ready .app-root {
   background-image: linear-gradient(135deg, #facc15, #eab308);
 }
 
+/* مطابقة ألوان آخر ثلاث أزرار ببجي مع أول ثلاث أزرار */
+.pubg-item[data-item="سيزون ب200ج"] .pubg-main-btn {
+  /* مثل 60 شده ب43ج */
+  background-image: linear-gradient(135deg, #ef4444, #3b82f6);
+}
+
+.pubg-item[data-item="برايم عادي ب48ج"] .pubg-main-btn {
+  /* مثل 325 شده ب215ج */
+  background-image: linear-gradient(135deg, #3b82f6, #92400e);
+}
+
+.pubg-item[data-item="بريم بلص ب420ج"] .pubg-main-btn {
+  /* مثل 170 شده ب55ج */
+  background-image: linear-gradient(135deg, #ef4444, #eab308);
+}
+
 /* شارة NEW لعناصر ببجي الجديدة */
 .pubg-new-badge {
   position: absolute;
