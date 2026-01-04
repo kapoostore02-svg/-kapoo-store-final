@@ -352,6 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const USED_CODES_STORAGE_PREFIX = "kapoo_discount_used_";
+  const NEW_PUBG_TS_KEY = "kapoo_pubg_new_items_ts";
 
   function getUsedCodes(sectionType) {
     const key = USED_CODES_STORAGE_PREFIX + sectionType;
@@ -758,6 +759,51 @@ document.addEventListener("DOMContentLoaded", () => {
           <span class="pubg-typing-text"></span>
         </div>
         <div class="pubg-grid">
+          <div class="pubg-item" data-new-pubg="1" data-item="ازدهار اول 48جنيه">
+            <span class="pubg-new-badge"><span>NEW</span></span>
+            <button class="pubg-main-btn" type="button">ازدهار اول 48جنيه</button>
+            <div class="pubg-actions">
+              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="ازدهار اول 48جنيه">
+                <span class="contact-icon contact-icon-wa"></span>
+                <span>تواصل واتساب</span>
+              </button>
+              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="ازدهار اول 48جنيه">
+                <span class="contact-icon contact-icon-tg"></span>
+                <span>تواصل تليجرام</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="pubg-item" data-new-pubg="1" data-item="ازدهار تاني 133جنيه">
+            <span class="pubg-new-badge"><span>NEW</span></span>
+            <button class="pubg-main-btn" type="button">ازدهار تاني 133جنيه</button>
+            <div class="pubg-actions">
+              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="ازدهار تاني 133جنيه">
+                <span class="contact-icon contact-icon-wa"></span>
+                <span>تواصل واتساب</span>
+              </button>
+              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="ازدهار تاني 133جنيه">
+                <span class="contact-icon contact-icon-tg"></span>
+                <span>تواصل تليجرام</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="pubg-item" data-new-pubg="1" data-item="ازدهار تالت 228جنيه">
+            <span class="pubg-new-badge"><span>NEW</span></span>
+            <button class="pubg-main-btn" type="button">ازدهار تالت 228جنيه</button>
+            <div class="pubg-actions">
+              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="ازدهار تالت 228جنيه">
+                <span class="contact-icon contact-icon-wa"></span>
+                <span>تواصل واتساب</span>
+              </button>
+              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="ازدهار تالت 228جنيه">
+                <span class="contact-icon contact-icon-tg"></span>
+                <span>تواصل تليجرام</span>
+              </button>
+            </div>
+          </div>
+
           <div class="pubg-item" data-item="60 شده ب43ج">
             <button class="pubg-main-btn" type="button">60 شده ب43ج</button>
             <div class="pubg-actions">
@@ -994,10 +1040,98 @@ document.addEventListener("DOMContentLoaded", () => {
       updateSearchGlow();
     }
 
+    // تهيئة عناصر الازدهار الجديدة (NEW) لمدة 24 ساعة
+    initPubgNewItems(wrapper);
+
     // نوع القسم للخصومات
     wrapper.dataset.sectionType = "pubg";
 
     return wrapper;
+  }
+
+  // عناصر ازدهار في قسم ببجي: NEW لمدة 24 ساعة، ثم الانتقال لآخر القائمة
+  function initPubgNewItems(wrapper) {
+    const grid = wrapper.querySelector(".pubg-grid");
+    if (!grid) return;
+
+    const newItems = Array.from(
+      grid.querySelectorAll('.pubg-item[data-new-pubg="1"]')
+    );
+    if (!newItems.length) return;
+
+    const DURATION = 24 * 60 * 60 * 1000;
+    let tsRaw = null;
+    let ts = NaN;
+
+    try {
+      tsRaw = localStorage.getItem(NEW_PUBG_TS_KEY);
+      if (tsRaw) ts = parseInt(tsRaw, 10);
+    } catch {
+      tsRaw = null;
+      ts = NaN;
+    }
+
+    const now = Date.now();
+    if (!tsRaw || Number.isNaN(ts)) {
+      ts = now;
+      try {
+        localStorage.setItem(NEW_PUBG_TS_KEY, String(ts));
+      } catch {
+        // ignore storage errors
+      }
+    }
+
+    const isActive = now - ts < DURATION;
+
+    if (isActive) {
+      // اجعل عناصر الازدهار في مقدمة القائمة مع إظهار شارة NEW
+      for (let i = newItems.length - 1; i >= 0; i--) {
+        const item = newItems[i];
+        const badge = item.querySelector(".pubg-new-badge");
+        if (badge) badge.hidden = false;
+        grid.insertBefore(item, grid.firstChild);
+      }
+    } else {
+      // انتهت الـ 24 ساعة: انقل العناصر لآخر القائمة وأخف شارة NEW
+      newItems.forEach((item) => {
+        const badge = item.querySelector(".pubg-new-badge");
+        if (badge) badge.hidden = true;
+        grid.appendChild(item);
+      });
+    }
+  }
+
+  // شارة NEW على زر قسم ببجي في الصفحة الرئيسية لمدة 24 ساعة
+  function initHomePubgNewBadge() {
+    const badge = document.querySelector(
+      ".category-pubg .category-parallelogram-new-home"
+    );
+    if (!badge) return;
+
+    const DURATION = 24 * 60 * 60 * 1000;
+    let tsRaw = null;
+    let ts = NaN;
+
+    try {
+      tsRaw = localStorage.getItem(NEW_PUBG_TS_KEY);
+      if (tsRaw) ts = parseInt(tsRaw, 10);
+    } catch {
+      tsRaw = null;
+      ts = NaN;
+    }
+
+    const now = Date.now();
+    if (!tsRaw || Number.isNaN(ts)) {
+      ts = now;
+      try {
+        localStorage.setItem(NEW_PUBG_TS_KEY, String(ts));
+      } catch {
+        // ignore storage errors
+      }
+    }
+
+    const isActive = now - ts < DURATION;
+    badge.style.display = isActive ? "" : "none";
   }
 
   function createChargingSection() {
@@ -2312,6 +2446,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // تحديث حالة "مستخدم مؤخرا" عند تحميل الصفحة
   updateLastUsedBadge();
+  initHomePubgNewBadge();
 
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
