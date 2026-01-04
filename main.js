@@ -164,6 +164,16 @@ document.addEventListener("DOMContentLoaded", () => {
     ? socialOverlay.querySelector(".social-modal-close")
     : null;
 
+  // INFO modal elements
+  const infoBtn = document.querySelector(".info-btn");
+  const infoOverlay = document.querySelector(".info-modal-overlay");
+  const infoCloseBtn = infoOverlay
+    ? infoOverlay.querySelector(".info-modal-close")
+    : null;
+  const infoTypingEl = infoOverlay
+    ? infoOverlay.querySelector(".info-modal-typing")
+    : null;
+
   // Theme toggle (light / dark)
   const themeToggleBtn = document.querySelector(".theme-toggle-btn");
   const THEME_KEY = "kapoo_theme";
@@ -221,6 +231,58 @@ document.addEventListener("DOMContentLoaded", () => {
       const url = SOCIAL_LINKS[platform];
       if (url) {
         window.open(url, "_blank");
+      }
+    });
+  }
+
+  // نافذة INFO مع كتابة حرف حرف بدون مسح
+  let infoTypingStarted = false;
+
+  function startInfoTyping() {
+    if (!infoTypingEl || infoTypingStarted) return;
+    infoTypingStarted = true;
+
+    const infoText =
+      "🚀 Kapoo Store\n" +
+      "وجهتك الأولى للخدمات الرقمية والشحن السريع باحترافية وأمان.\n\n" +
+      "في Kapoo Store بنقدّم لك تجربة متكاملة تشمل:\n\n" +
+      "🔹 شحن فوري وآمن\n\n" +
+      "🔹 قسم الطرق والثغرات بأحدث التحديثات\n\n" +
+      "🔹 قسم التصميم لخدمات احترافية وعصرية\n\n" +
+      "🔹 أقسام مخصّصة لأشهر الألعاب مثل Free Fire و PUBG\n\n" +
+      "نضمن لك سرعة في التنفيذ، جودة في الخدمة، ودعم فني متواصل للرد على استفساراتك عبر واتساب و تلجرام في أي وقت.\n\n" +
+      "✨ Kapoo Store – لأن راحتك وسرعة خدمتك هي أولويتنا.\n";
+    let index = 0;
+    const TYPE_SPEED = 40;
+
+    const tick = () => {
+      if (!infoTypingEl) return;
+      if (index <= infoText.length) {
+        infoTypingEl.textContent = infoText.slice(0, index);
+        index++;
+        setTimeout(tick, TYPE_SPEED);
+      }
+    };
+
+    infoTypingEl.textContent = "";
+    tick();
+  }
+
+  if (infoBtn && infoOverlay) {
+    infoBtn.addEventListener("click", () => {
+      infoOverlay.classList.add("show");
+      startInfoTyping();
+    });
+
+    if (infoCloseBtn) {
+      infoCloseBtn.addEventListener("click", () => {
+        infoOverlay.classList.remove("show");
+      });
+    }
+
+    infoOverlay.addEventListener("click", (e) => {
+      if (e.target === infoOverlay) {
+        infoOverlay.classList.remove("show");
       }
     });
   }
@@ -2180,6 +2242,77 @@ document.addEventListener("DOMContentLoaded", () => {
     return wrapper;
   }
 
+  // آخر قسم تم استخدامه (مستخدم مؤخراً) لمدة ساعة واحدة
+  const LAST_USED_KEY = "kapoo_last_section";
+  const LAST_USED_DURATION = 60 * 60 * 1000; // ساعة واحدة بالميلي ثانية
+
+  function setLastUsedSection(sectionType) {
+    const payload = {
+      type: sectionType,
+      time: Date.now(),
+    };
+    try {
+      localStorage.setItem(LAST_USED_KEY, JSON.stringify(payload));
+    } catch {
+      // ignore storage errors
+    }
+    updateLastUsedBadge();
+  }
+
+  function getLastUsedSection() {
+    let raw;
+    try {
+      raw = localStorage.getItem(LAST_USED_KEY);
+    } catch {
+      return null;
+    }
+    if (!raw) return null;
+    try {
+      const data = JSON.parse(raw);
+      if (!data || !data.type || !data.time) return null;
+      const age = Date.now() - data.time;
+      if (age > LAST_USED_DURATION) {
+        return null;
+      }
+      return data;
+    } catch {
+      return null;
+    }
+  }
+
+  function updateLastUsedBadge() {
+    const allCategoryBtns = document.querySelectorAll(".category-btn");
+    allCategoryBtns.forEach((btn) => {
+      const existing = btn.querySelector(".category-last-used");
+      if (existing) existing.remove();
+    });
+
+    const lastUsed = getLastUsedSection();
+    if (!lastUsed) return;
+
+    const typeToClass = {
+      pubg: ".category-pubg",
+      freefire: ".category-freefire",
+      charging: ".category-charging",
+      design: ".category-design",
+      methods: ".category-methods",
+    };
+
+    const selector = typeToClass[lastUsed.type];
+    if (!selector) return;
+
+    const targetBtn = document.querySelector(selector);
+    if (!targetBtn) return;
+
+    const badge = document.createElement("span");
+    badge.className = "category-last-used";
+    badge.textContent = "مستخدم مؤخرا";
+    targetBtn.appendChild(badge);
+  }
+
+  // تحديث حالة "مستخدم مؤخرا" عند تحميل الصفحة
+  updateLastUsedBadge();
+
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const labelEl = btn.querySelector(".category-label");
@@ -2190,21 +2323,32 @@ document.addEventListener("DOMContentLoaded", () => {
       if (existing) existing.remove();
 
       let sectionWrapper;
+      let sectionTypeForLastUsed = null;
+
       if (labelText.includes("ببجي")) {
         sectionWrapper = createPubgSection();
+        sectionTypeForLastUsed = "pubg";
       } else if (labelText.includes("فري فاير")) {
         sectionWrapper = createFreefireSection();
+        sectionTypeForLastUsed = "freefire";
       } else if (labelText.includes("الشحن")) {
         sectionWrapper = createChargingSection();
+        sectionTypeForLastUsed = "charging";
       } else if (labelText.includes("تصميم")) {
         sectionWrapper = createDesignSection();
+        sectionTypeForLastUsed = "design";
       } else if (labelText.includes("طرق ثغرات")) {
         sectionWrapper = createMethodsSection();
+        sectionTypeForLastUsed = "methods";
       } else {
         sectionWrapper = createEmptySection(labelText);
       }
 
       document.body.appendChild(sectionWrapper);
+
+      if (sectionTypeForLastUsed) {
+        setLastUsedSection(sectionTypeForLastUsed);
+      }
     });
   });
 });
