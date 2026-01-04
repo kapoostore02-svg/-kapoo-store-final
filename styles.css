@@ -207,6 +207,29 @@ body.app-ready .app-root {
     0 0 16px rgba(56, 189, 248, 0.7);
 }
 
+.info-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(59, 130, 246, 0.8);
+  background: radial-gradient(circle at 0% 0%, #0ea5e9, #020617 60%);
+  color: #e0f2fe;
+  font-size: 0.9rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow:
+    0 0 8px rgba(59, 130, 246, 0.7),
+    0 0 16px rgba(56, 189, 248, 0.7);
+  text-shadow: 0 0 4px rgba(15, 23, 42, 0.8);
+}
+
+.info-btn:active {
+  transform: scale(0.96);
+}
+
 .more-menu-btn:active {
   transform: scale(0.96);
 }
@@ -472,6 +495,24 @@ body.app-ready .app-root {
   display: inline-block;
   font-size: 0.9rem;
   animation: cta-arrow-move 0.9s ease-in-out infinite;
+}
+
+/* شارة "مستخدم مؤخرا" على زر القسم */
+.category-last-used {
+  position: absolute;
+  inset-inline-start: 12px;
+  bottom: 10px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.9);
+  font-size: 0.75rem;
+  color: #e0f2fe;
+  white-space: nowrap;
+  box-shadow:
+    0 0 6px rgba(56, 189, 248, 0.8),
+    0 0 12px rgba(15, 23, 42, 0.9);
+  z-index: 2;
 }
 
 /* إظهار الشكل المتوازي الأضلاع والـ CTA فقط عندما يكون الزر في المنتصف تقريباً */
@@ -1340,6 +1381,150 @@ body.theme-light .header-container {
 body.theme-light .store-title,
 body.theme-light .store-subtitle {
   color: var(--text-main);
+}
+
+/* نافذة معلومات INFO */
+.info-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1125;
+}
+
+.info-modal-overlay.show {
+  display: flex;
+}
+
+.info-modal {
+  position: relative;
+  width: 85%;
+  max-width: 380px;
+  padding: 2px;
+}
+
+.info-modal-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  border: 2px solid rgba(59, 130, 246, 0.7);
+  box-shadow:
+    0 0 12px rgba(59, 130, 246, 0.9),
+    0 0 24px rgba(56, 189, 248, 0.8),
+    0 0 36px rgba(15, 23, 42, 1);
+  pointer-events: none;
+  transition:
+    box-shadow 0.3s ease-out,
+    transform 0.3s ease-out,
+    border-color 0.3s ease-out;
+}
+
+.info-modal:hover .info-modal-border {
+  box-shadow:
+    0 0 18px rgba(59, 130, 246, 1),
+    0 0 32px rgba(56, 189, 248, 1),
+    0 0 46px rgba(15, 23, 42, 1);
+  transform: translateY(-2px);
+  border-color: rgba(129, 230, 217, 1);
+}
+
+.info-modal-content {
+  position: relative;
+  border-radius: 18px;
+  background: radial-gradient(circle at top, #020617 0, #000000 70%);
+  padding: 12px 14px 14px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.info-modal-content::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(59, 130, 246, 0.1),
+    rgba(56, 189, 248, 0.35),
+    rgba(59, 130, 246, 0.1)
+  );
+  opacity: 0.9;
+  animation: info-orbit 12s linear infinite;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+@keyframes info-orbit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.info-modal-title {
+  text-align: center;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  color: #e0f2fe;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.info-modal-close {
+  position: absolute;
+  inset-inline-start: 10px;
+  top: 8px;
+  border: none;
+  background: transparent;
+  color: #e5e7eb;
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.info-modal-body {
+  position: relative;
+  z-index: 1;
+  font-size: 0.85rem;
+  color: #e5e7eb;
+  line-height: 1.8;
+  text-align: right;
+}
+
+.info-modal-typing {
+  display: block;
+  white-space: pre-line;
+  font-family: "Scheherazade New", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-shadow:
+    0 0 4px rgba(56, 189, 248, 0.9),
+    0 0 10px rgba(37, 99, 235, 0.8);
+}
+
+.info-modal-footer-lines {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.8rem;
+}
+
+.info-owner {
+  font-weight: 700;
+  color: #facc15;
+  font-family: "Scheherazade New", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.info-dev {
+  font-weight: 700;
+  color: #38bdf8;
+  font-family: "Segoe Script", "Courier New", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.05em;
 }
 
 /* Floating WhatsApp button */
