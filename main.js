@@ -1248,171 +1248,6 @@ document.addEventListener("DOMContentLoaded", () => {
           <span class="pubg-typing-text"></span>
         </div>
         <div class="pubg-grid">
-          <div class="pubg-item" data-new-charging="1" data-item="باقه فليكس70 ب105جنيه">
-            <span class="charging-new-badge"><span>NEW</span></span>
-            <button class="pubg-main-btn" type="button">باقه فليكس70 ب105جنيه</button>
-            <div class="pubg-actions">
-              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="باقه فليكس70 ب105جنيه">
-                <span class="contact-icon contact-icon-wa"></span>
-                <span>تواصل واتساب</span>
-              </button>
-              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="باقه فليكس70 ب105جنيه">
-                <span class="contact-icon contact-icon-tg"></span>
-                <span>تواصل تليجرام</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="pubg-item" data-new-charging="1" data-item="باقه فليكس100ب 145جنيه">
-            <span class="charging-new-badge"><span>NEW</span></span>
-            <button class="pubg-main-btn" type="button">باقه فليكس100ب 145جنيه</button>
-            <div class="pubg-actions">
-              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="باقه فليكس100ب 145جنيه">
-                <span class="contact-icon contact-icon-wa"></span>
-                <span>تواصل واتساب</span>
-              </button>
-              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="باقه فليكس100ب 145جنيه">
-                <span class="contact-icon contact-icon-tg"></span>
-                <span>تواصل تليجرام</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="pubg-item" data-new-charging="1" data-item="باقه فليكس150ب 218جنيه">
-            <span class="charging-new-badge"><span>NEW</span></span>
-            <button class="pubg-main-btn" type="button">باقه فليكس150ب 218جنيه</button>
-            <div class="pubg-actions">
-              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="باقه فليكس150ب 218جنيه">
-                <span class="contact-icon contact-icon-wa"></span>
-                <span>تواصل واتساب</span>
-              </button>
-              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="باقه فليكس150ب 218جنيه">
-                <span class="contact-icon contact-icon-tg"></span>
-                <span>تواصل تليجرام</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="pubg-item" data-new-charging="1" data-item="باقه فليكس 300ب435جنيه">
-            <span class="charging-new-badge"><span>NEW</span></span>
-            <button class="pubg-main-btn" type="button">باقه فليكس 300ب435جنيه</button>
-            <div class="pubg-actions">
-              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="باقه فليكس 300ب435جنيه">
-                <span class="contact-icon contact-icon-wa"></span>
-                <span>تواصل واتساب</span>
-              </button>
-              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="باقه فليكس 300ب435جنيه">
-                <span class="contact-icon contact-icon-tg"></span>
-                <span>تواصل تليجرام</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="pubg-item" data-new-charging="1" data-item="تجديد نت ارضي باقه200جيجا ب400جنيه">
-            <span class="charging-new-badge"><span>NEW</span></span>
-            <button class="pubg-main-btn" type="button">تجديد نت ارضي باقه200جيجا ب400جنيه</button>
-            <div class="pubg-actions">
-              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="تجديد نت ارضي باقه200جيجا ب400جنيه">
-                <span class="contact-icon contact-icon-wa"></span>
-                <span>تواصل واتساب</span>
-              </button>
-              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="تجديد نت ارضي باقه200جيجا ب400جنيه">
-                <span class="contact-icon contact-icon-tg"></span>
-                <span>تواصل تليجرام</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="pubg-item" data-new-charging="1" data-item="تجديد باقه نت ارضي 180جيجا ب253جنيه">
-            <span class="charging-new-badge"><span>NEW</span></span>
-            <button class="pubg-main-btn" type="button">تجديد باقه نت ارضي 180جيجا ب253جنيه</button>
-            <div class="pubg-actions">
-              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="تجديد باقه نت ارضي 180جيجا ب253جنيه">
-                <span class="contact-icon contact-icon-wa"></span>
-                <span>تواصل واتساب</span>
-              </button>
-              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="تجديد باقه نت ارضي 180جيجا ب253جنيه">
-                <span class="contact-icon contact-icon-tg"></span>
-                <span>تواصل تليجرام</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="pubg-item" data-new-charging="1" data-item="دفع فاتوره الارضي حسب السعر">
-            <span class="charging-new-badge"><span>NEW</span></span>
-            <button class="pubg-main-btn" type="button">دفع فاتوره الارضي حسب السعر</button>
-            <div class="pubg-actions">
-              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="دفع فاتوره الارضي حسب السعر">
-                <span class="contact-icon contact-icon-wa"></span>
-                <span>تواصل واتساب</span>
-              </button>
-              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="دفع فاتوره الارضي حسب السعر">
-                <span class="contact-icon contact-icon-tg"></span>
-                <span>تواصل تليجرام</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="pubg-item" data-new-charging="1" data-item="دفع فواتير كهرباء">
-            <span class="charging-new-badge"><span>NEW</span></span>
-            <button class="pubg-main-btn" type="button">دفع فواتير كهرباء</button>
-            <div class="pubg-actions">
-              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="دفع فواتير كهرباء">
-                <span class="contact-icon contact-icon-wa"></span>
-                <span>تواصل واتساب</span>
-              </button>
-              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="دفع فواتير كهرباء">
-                <span class="contact-icon contact-icon-tg"></span>
-                <span>تواصل تليجرام</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="pubg-item" data-new-charging="1" data-item="دفع فواتير المياه">
-            <span class="charging-new-badge"><span>NEW</span></span>
-            <button class="pubg-main-btn" type="button">دفع فواتير المياه</button>
-            <div class="pubg-actions">
-              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="دفع فواتير المياه">
-                <span class="contact-icon contact-icon-wa"></span>
-                <span>تواصل واتساب</span>
-              </button>
-              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="دفع فواتير المياه">
-                <span class="contact-icon contact-icon-tg"></span>
-                <span>تواصل تليجرام</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="pubg-item" data-new-charging="1" data-item="دفع فواتير الغاز">
-            <span class="charging-new-badge"><span>NEW</span></span>
-            <button class="pubg-main-btn" type="button">دفع فواتير الغاز</button>
-            <div class="pubg-actions">
-              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="دفع فواتير الغاز">
-                <span class="contact-icon contact-icon-wa"></span>
-                <span>تواصل واتساب</span>
-              </button>
-              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="دفع فواتير الغاز">
-                <span class="contact-icon contact-icon-tg"></span>
-                <span>تواصل تليجرام</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="pubg-item" data-new-charging="1" data-item="تجديد باقات اورنج واتصلات">
-            <span class="charging-new-badge"><span>NEW</span></span>
-            <button class="pubg-main-btn" type="button">تجديد باقات اورنج واتصلات</button>
-            <div class="pubg-actions">
-              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="تجديد باقات اورنج واتصلات">
-                <span class="contact-icon contact-icon-wa"></span>
-                <span>تواصل واتساب</span>
-              </button>
-              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="تجديد باقات اورنج واتصلات">
-                <span class="contact-icon contact-icon-tg"></span>
-                <span>تواصل تليجرام</span>
-              </button>
-            </div>
-          </div>
-
           <div class="pubg-item" data-item="كرت فكه ب17ج">
             <button class="pubg-main-btn" type="button">كرت فكه ب17ج</button>
             <div class="pubg-actions">
@@ -1463,6 +1298,160 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span>تواصل واتساب</span>
               </button>
               <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="كرت فكه ب36ج">
+                <span class="contact-icon contact-icon-tg"></span>
+                <span>تواصل تليجرام</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="pubg-item" data-item="باقه فليكس70 ب105جنيه">
+            <button class="pubg-main-btn" type="button">باقه فليكس70 ب105جنيه</button>
+            <div class="pubg-actions">
+              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="باقه فليكس70 ب105جنيه">
+                <span class="contact-icon contact-icon-wa"></span>
+                <span>تواصل واتساب</span>
+              </button>
+              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="باقه فليكس70 ب105جنيه">
+                <span class="contact-icon contact-icon-tg"></span>
+                <span>تواصل تليجرام</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="pubg-item" data-item="باقه فليكس100ب 145جنيه">
+            <button class="pubg-main-btn" type="button">باقه فليكس100ب 145جنيه</button>
+            <div class="pubg-actions">
+              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="باقه فليكس100ب 145جنيه">
+                <span class="contact-icon contact-icon-wa"></span>
+                <span>تواصل واتساب</span>
+              </button>
+              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="باقه فليكس100ب 145جنيه">
+                <span class="contact-icon contact-icon-tg"></span>
+                <span>تواصل تليجرام</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="pubg-item" data-item="باقه فليكس150ب 218جنيه">
+            <button class="pubg-main-btn" type="button">باقه فليكس150ب 218جنيه</button>
+            <div class="pubg-actions">
+              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="باقه فليكس150ب 218جنيه">
+                <span class="contact-icon contact-icon-wa"></span>
+                <span>تواصل واتساب</span>
+              </button>
+              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="باقه فليكس150ب 218جنيه">
+                <span class="contact-icon contact-icon-tg"></span>
+                <span>تواصل تليجرام</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="pubg-item" data-item="باقه فليكس 300ب435جنيه">
+            <button class="pubg-main-btn" type="button">باقه فليكس 300ب435جنيه</button>
+            <div class="pubg-actions">
+              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="باقه فليكس 300ب435جنيه">
+                <span class="contact-icon contact-icon-wa"></span>
+                <span>تواصل واتساب</span>
+              </button>
+              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="باقه فليكس 300ب435جنيه">
+                <span class="contact-icon contact-icon-tg"></span>
+                <span>تواصل تليجرام</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="pubg-item" data-item="تجديد نت ارضي باقه200جيجا ب400جنيه">
+            <button class="pubg-main-btn" type="button">تجديد نت ارضي باقه200جيجا ب400جنيه</button>
+            <div class="pubg-actions">
+              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="تجديد نت ارضي باقه200جيجا ب400جنيه">
+                <span class="contact-icon contact-icon-wa"></span>
+                <span>تواصل واتساب</span>
+              </button>
+              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="تجديد نت ارضي باقه200جيجا ب400جنيه">
+                <span class="contact-icon contact-icon-tg"></span>
+                <span>تواصل تليجرام</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="pubg-item" data-item="تجديد باقه نت ارضي 180جيجا ب253جنيه">
+            <button class="pubg-main-btn" type="button">تجديد باقه نت ارضي 180جيجا ب253جنيه</button>
+            <div class="pubg-actions">
+              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="تجديد باقه نت ارضي 180جيجا ب253جنيه">
+                <span class="contact-icon contact-icon-wa"></span>
+                <span>تواصل واتساب</span>
+              </button>
+              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="تجديد باقه نت ارضي 180جيجا ب253جنيه">
+                <span class="contact-icon contact-icon-tg"></span>
+                <span>تواصل تليجرام</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="pubg-item" data-item="دفع فاتوره الارضي حسب السعر">
+            <button class="pubg-main-btn" type="button">دفع فاتوره الارضي حسب السعر</button>
+            <div class="pubg-actions">
+              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="دفع فاتوره الارضي حسب السعر">
+                <span class="contact-icon contact-icon-wa"></span>
+                <span>تواصل واتساب</span>
+              </button>
+              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="دفع فاتوره الارضي حسب السعر">
+                <span class="contact-icon contact-icon-tg"></span>
+                <span>تواصل تليجرام</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="pubg-item" data-item="دفع فواتير كهرباء">
+            <button class="pubg-main-btn" type="button">دفع فواتير كهرباء</button>
+            <div class="pubg-actions">
+              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="دفع فواتير كهرباء">
+                <span class="contact-icon contact-icon-wa"></span>
+                <span>تواصل واتساب</span>
+              </button>
+              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="دفع فواتير كهرباء">
+                <span class="contact-icon contact-icon-tg"></span>
+                <span>تواصل تليجرام</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="pubg-item" data-item="دفع فواتير المياه">
+            <button class="pubg-main-btn" type="button">دفع فواتير المياه</button>
+            <div class="pubg-actions">
+              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="دفع فواتير المياه">
+                <span class="contact-icon contact-icon-wa"></span>
+                <span>تواصل واتساب</span>
+              </button>
+              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="دفع فواتير المياه">
+                <span class="contact-icon contact-icon-tg"></span>
+                <span>تواصل تليجرام</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="pubg-item" data-item="دفع فواتير الغاز">
+            <button class="pubg-main-btn" type="button">دفع فواتير الغاز</button>
+            <div class="pubg-actions">
+              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="دفع فواتير الغاز">
+                <span class="contact-icon contact-icon-wa"></span>
+                <span>تواصل واتساب</span>
+              </button>
+              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="دفع فواتير الغاز">
+                <span class="contact-icon contact-icon-tg"></span>
+                <span>تواصل تليجرام</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="pubg-item" data-item="تجديد باقات اورنج واتصلات">
+            <button class="pubg-main-btn" type="button">تجديد باقات اورنج واتصلات</button>
+            <div class="pubg-actions">
+              <button class="contact-btn whatsapp-btn" type="button" data-platform="whatsapp" data-item="تجديد باقات اورنج واتصلات">
+                <span class="contact-icon contact-icon-wa"></span>
+                <span>تواصل واتساب</span>
+              </button>
+              <button class="contact-btn telegram-btn" type="button" data-platform="telegram" data-item="تجديد باقات اورنج واتصلات">
                 <span class="contact-icon contact-icon-tg"></span>
                 <span>تواصل تليجرام</span>
               </button>
