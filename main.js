@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   startIntro();
 
-  const WHATSAPP_NUMBER = "201284070117";
+  const WHATSAPP_NUMBER = "201032675967";
   const TELEGRAM_USER = "K_P_O5";
 
   // روابط مواقع التواصل من زر الثلاث نقاط
